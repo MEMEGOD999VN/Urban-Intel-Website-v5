@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TerraIntel v4 — Tactical Earth Data for Cities</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets/fpt-aerospace-logo.png" alt="FPT Aerospace" class="header-logo">
+        <div class="brand-text"><h1>TerraIntel</h1><p class="tag">Turning Earth Intelligence into Urban Strategy</p></div>
+      </div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#insights">Urban Insights</a>
+        <a href="#map">Map & Dashboard</a>
+        <a href="#charts">Analytics</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about" class="section hero">
+      <div class="hero-left">
+        <h2>Mission</h2>
+        <p class="lead">TerraIntel demonstrates how an <strong>urban planner can use NASA Earth observation data</strong> to develop <strong>smart strategies for city growth</strong> that maintain both the <strong>wellbeing of people</strong> and the <strong>health of the environment</strong>.</p>
+      </div>
+      <div class="hero-right">
+        <!-- hero image omitted for lightweight package -->
+      </div>
+    </section>
+
+    <section id="insights" class="section">
+      <h3>Urban Insights — Key Tactical Questions</h3>
+      <div class="cards">
+        <article class="card">
+          <div class="icon">🏙️</div>
+          <h4>Which parts of the city are experiencing the most growth?</h4>
+          <p><strong>NASA data:</strong> Landsat (land cover change), VIIRS Nightlights (economic activity)</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🚉</div>
+          <h4>Which communities need better access to food, housing, or transportation?</h4>
+          <p><strong>NASA + socio datasets:</strong> VIIRS Nightlights, SEDAC population grids</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🌾</div>
+          <h4>Where should land be used for agriculture to feed a growing population?</h4>
+          <p><strong>NASA data:</strong> NDVI (Landsat/MODIS), GPM (precipitation), GRACE (water availability)</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="map" class="section map-section">
+      <h3>Map & Dashboard</h3>
+      <p class="muted">Click any point on the map (default center: Vietnam). The chart will fetch live NASA POWER data (Temperature & Solar Radiation) for that location.</p>
+      <div id="mapid"></div>
+
+      <div class="map-controls">
+        <div class="kpi-card">
+          <h5>Quick KPIs (demo)</h5>
+          <ul>
+            <li>Average annual precipitation: <strong id="kpi-prec">--</strong></li>
+            <li>Mean temperature: <strong id="kpi-temp">--</strong></li>
+            <li>Avg solar rad: <strong id="kpi-solar">--</strong></li>
+          </ul>
+        </div>
+
+        <div class="chart-card">
+          <h5>POWER Snapshot (Temperature & Solar Radiation)</h5>
+          <canvas id="powerChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section id="charts" class="section">
+      <h3>Example Analytics (demo)</h3>
+      <div class="grid-charts">
+        <div class="chart-box">
+          <h5>Urban Growth (Landsat-derived, demo)</h5>
+          <canvas id="chartGrowth"></canvas>
+        </div>
+        <div class="chart-box">
+          <h5>Nightlight vs Population (VIIRS + SEDAC, demo)</h5>
+          <canvas id="chartNightPop"></canvas>
+        </div>
+        <div class="chart-box">
+          <h5>NDVI Time Series (Vegetation Health, demo)</h5>
+          <canvas id="chartNDVI"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="assets/fpt-aerospace-logo.png" alt="FPT Aerospace Team Logo" class="footer-logo">
+      <div class="footer-text">Developed by <strong>FPT Aerospace Team</strong> &nbsp;|&nbsp; Powered by NASA Earth Observation Data</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
